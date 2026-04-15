@@ -51,6 +51,10 @@
       color: #ffffff;
       box-shadow: 0 1px 2px rgba(0,0,0,.08);
     }
+    .nav-item:not(.active):hover {
+      background: rgba(255,255,255,.12);
+      color: #ffffff;
+    }
     /* Inactive item with counter: white text */
     .nav-item.with-counter {
       color: rgba(255,255,255,.85);
@@ -144,6 +148,15 @@
       cursor: pointer;
       background: #fff;
       width: 100%;
+    }
+
+    .sb-item:hover {
+      background: #F4F6F8;
+      color: #2B3645;
+    }
+    .sb-sub-item:hover {
+      background: #F4F6F8;
+      color: #2B3645;
     }
 
     /* Lvl1 Active — "Carriers management": 14px Medium 500, same colour but bolder */
@@ -282,6 +295,7 @@
       cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px;
       white-space: nowrap;
     }
+    .tab:not(.active):hover { color: #2B3645; }
     .tab.active { color: #6322E5; border-bottom-color: #6322E5; }
 
     /* Filters */
