@@ -79,14 +79,11 @@
       color: #000000 !important;
     }
     .nav-chevron {
-      position: absolute;
-      right: 108px;
-      top: 0;
-      height: 64px;
-      width: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 24px;
+      flex-shrink: 0;
     }
 
     /* ── PAGE SHELL ── */
@@ -437,11 +434,11 @@
     <div class="nav-item">Track</div>
     <div class="nav-item">Returns</div>
     <div class="nav-item">Insights</div>
-  </div>
-  <div class="nav-chevron">
-    <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-      <path d="M6 9l6 6 6-6" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+    <div class="nav-chevron">
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path d="M6 9l6 6 6-6" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
   </div>
 </nav>
 
