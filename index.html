@@ -928,6 +928,24 @@
 
 
 <script>
+  // ── Nav item switching ───────────────────────────────────────────────────
+  document.querySelectorAll('.nav-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      // Remove active from current
+      var current = document.querySelector('.nav-item.active');
+      if (current) {
+        current.classList.remove('active');
+        // Restore with-counter if this item has a badge
+        if (current.querySelector('.nav-badge')) {
+          current.classList.add('with-counter');
+        }
+      }
+      // Activate clicked item
+      this.classList.remove('with-counter');
+      this.classList.add('active');
+    });
+  });
+
   // ── Sidebar toggles ──────────────────────────────────────────────────────
   document.querySelectorAll('.sb-toggle').forEach(function(toggle) {
     toggle.addEventListener('click', function() {
