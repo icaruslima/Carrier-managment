@@ -82,8 +82,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 24px;
+      width: 32px;
+      height: 48px;
+      border-radius: 6px;
       flex-shrink: 0;
+      cursor: pointer;
+    }
+    .nav-chevron:hover {
+      background: rgba(255,255,255,.12);
+    }
+    .nav-chevron.active {
+      background: #263aba;
+      box-shadow: 0 1px 2px rgba(0,0,0,.08);
     }
 
     /* ── PAGE SHELL ── */
@@ -976,10 +986,10 @@
 
 <script>
   // ── Nav item switching ───────────────────────────────────────────────────
-  document.querySelectorAll('.nav-item').forEach(function(item) {
+  document.querySelectorAll('.nav-item, .nav-chevron').forEach(function(item) {
     item.addEventListener('click', function() {
       // Remove active from current
-      var current = document.querySelector('.nav-item.active');
+      var current = document.querySelector('.nav-item.active, .nav-chevron.active');
       if (current) {
         current.classList.remove('active');
         // Restore with-counter if this item has a badge
