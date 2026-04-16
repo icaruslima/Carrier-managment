@@ -95,6 +95,34 @@
       background: #263aba;
       box-shadow: 0 1px 2px rgba(0,0,0,.08);
     }
+    .nav-dropdown {
+      position: fixed;
+      display: none;
+      background: #ffffff;
+      border: 0.5px solid #DAE0E7;
+      border-radius: 6px;
+      box-shadow: 0px 2px 1px rgba(0,0,0,.05), 0px 0px 1px rgba(0,0,0,.25);
+      width: 160px;
+      z-index: 1000;
+      overflow: hidden;
+    }
+    .nav-dropdown.open { display: block; }
+    .nav-dropdown-item {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #280E5C;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .nav-dropdown-item:hover { background: rgba(40,14,92,.06); }
+    .nav-dropdown-item.divider-above {
+      height: 35px;
+      border-top: 0.5px solid #DAE0E7;
+    }
 
     /* ── PAGE SHELL ── */
     .page { background: #F9FAFB; }
@@ -444,13 +472,20 @@
     <div class="nav-item">Track</div>
     <div class="nav-item">Returns</div>
     <div class="nav-item">Insights</div>
-    <div class="nav-chevron">
+    <div class="nav-chevron" id="navChevron">
       <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
         <path d="M6 9l6 6 6-6" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
   </div>
 </nav>
+<div class="nav-dropdown" id="navDropdown">
+  <div class="nav-dropdown-item">Invoices</div>
+  <div class="nav-dropdown-item">Settings</div>
+  <div class="nav-dropdown-item">My profile</div>
+  <div class="nav-dropdown-item">Support</div>
+  <div class="nav-dropdown-item divider-above">Logout</div>
+</div>
 
 <!-- ══════════════ PAGE ══════════════ -->
 <div class="page">
@@ -1001,6 +1036,42 @@
       this.classList.remove('with-counter');
       this.classList.add('active');
     });
+  });
+
+  // ── Nav chevron dropdown ─────────────────────────────────────────────────
+  var navChevronEl = document.getElementById('navChevron');
+  var navDropdownEl = document.getElementById('navDropdown');
+
+  navChevronEl.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var isOpen = navDropdownEl.classList.contains('open');
+    if (isOpen) {
+      navDropdownEl.classList.remove('open');
+    } else {
+      var rect = navChevronEl.getBoundingClientRect();
+      navDropdownEl.style.top = (rect.bottom + 4) + 'px';
+      navDropdownEl.style.right = (window.innerWidth - rect.right) + 'px';
+      navDropdownEl.classList.add('open');
+    }
+  });
+
+  navDropdownEl.querySelectorAll('.nav-dropdown-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      navDropdownEl.classList.remove('open');
+      navChevronEl.classList.remove('active');
+      var prev = document.querySelector('.nav-item.active');
+      if (!prev) {
+        // restore first nav-item as active
+        var first = document.querySelector('.nav-item');
+        if (first) first.classList.add('active');
+      }
+    });
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!navChevronEl.contains(e.target) && !navDropdownEl.contains(e.target)) {
+      navDropdownEl.classList.remove('open');
+    }
   });
 
   // ── Sidebar toggles ──────────────────────────────────────────────────────
