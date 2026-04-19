@@ -417,6 +417,11 @@
       border-radius: 6px; font-size: 14px; font-weight: 500; color: #AFC0D0;
       cursor: not-allowed; font-family: inherit; box-shadow: 0 1px 2px rgba(0,0,0,.05);
     }
+    .ap-btn-save.enabled {
+      background: #6322E5; border-color: #6322E5; color: #fff;
+      cursor: pointer;
+    }
+    .ap-btn-save.enabled:hover { background: #5119CC; }
 
     /* Heading row */
     .main-hd {
@@ -1625,11 +1630,81 @@
   function hideAuspostPanel() {
     auspostPanel.style.display = 'none';
     carrierList.style.display  = 'block';
+    apRowCheckboxes.forEach(function(cb) { cb.classList.remove('checked'); });
+    updateApHeader();
   }
 
   document.getElementById('auspost-get-started').addEventListener('click', showAuspostPanel);
   document.getElementById('ap-back').addEventListener('click', hideAuspostPanel);
   document.getElementById('ap-cancel').addEventListener('click', hideAuspostPanel);
+
+  // ── Radio button toggle ──────────────────────────────────────────────────
+  document.querySelectorAll('.ap-radio-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      document.querySelectorAll('.ap-radio-item').forEach(function(r) {
+        r.classList.remove('selected');
+        r.querySelector('.ap-radio').classList.remove('selected');
+      });
+      this.classList.add('selected');
+      this.querySelector('.ap-radio').classList.add('selected');
+    });
+  });
+
+  // ── AP panel tabs switching ──────────────────────────────────────────────
+  document.querySelectorAll('.ap-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.ap-tab').forEach(function(t) { t.classList.remove('active'); });
+      this.classList.add('active');
+    });
+  });
+
+  // ── Individual service toggle click ──────────────────────────────────────
+  document.querySelectorAll('.ap-toggle').forEach(function(toggle) {
+    toggle.style.cursor = 'pointer';
+    toggle.addEventListener('click', function() {
+      this.classList.toggle('on');
+    });
+  });
+
+  // ── Save button — enable when any input has content ──────────────────────
+  var apSaveBtn = document.querySelector('.ap-btn-save');
+  function checkApForm() {
+    var hasContent = false;
+    document.querySelectorAll('#auspost-panel .ap-input').forEach(function(inp) {
+      if (inp.value.trim()) hasContent = true;
+    });
+    apSaveBtn.disabled = !hasContent;
+    apSaveBtn.classList.toggle('enabled', hasContent);
+  }
+  document.querySelectorAll('#auspost-panel .ap-input').forEach(function(inp) {
+    inp.addEventListener('input', checkApForm);
+  });
+
+  // ── "Don't show me this again" & "View recommendations" ─────────────────
+  var recsEl = document.querySelector('.recs');
+  document.querySelector('.recs-link').addEventListener('click', function() {
+    recsEl.style.display = 'none';
+  });
+  document.querySelector('.recs-btn').addEventListener('click', function() {
+    recsEl.style.display = 'none';
+  });
+
+  // ── Sidebar items — active state on click ────────────────────────────────
+  document.querySelectorAll('.sb-item:not(.sb-toggle), .sb-sub-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      document.querySelectorAll('.sb-item, .sb-sub-item').forEach(function(i) {
+        i.classList.remove('sb-item-active');
+      });
+      this.classList.add('sb-item-active');
+    });
+  });
+
+  // ── Carrier name click — open Australia Post panel ───────────────────────
+  document.querySelectorAll('.c-name').forEach(function(name) {
+    name.addEventListener('click', function() {
+      showAuspostPanel();
+    });
+  });
 </script>
 
 </body>
