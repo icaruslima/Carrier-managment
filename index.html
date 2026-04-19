@@ -387,6 +387,13 @@
       content: ''; position: absolute; top: 3px; left: 3px;
       width: 16px; height: 16px; border-radius: 50%;
       background: #F6F8F9; border: 1px solid #557390;
+      transition: left 0.15s ease;
+    }
+    .ap-toggle.on {
+      background: #6322E5; border-color: #6322E5;
+    }
+    .ap-toggle.on::after {
+      left: 23px; background: #fff; border-color: #fff;
     }
     .ap-footer {
       display: flex; align-items: center; justify-content: flex-end;
@@ -854,8 +861,8 @@
           <div class="ap-filter-bar" id="ap-filter-bar">
             <div class="ap-checkbox checked" id="ap-fb-checkbox"></div>
             <span class="ap-fb-label"><span id="ap-selected-count">0</span> stores selected</span>
-            <button class="ap-fb-pill">Enable</button>
-            <button class="ap-fb-pill">Disable</button>
+            <button class="ap-fb-pill" id="ap-btn-enable">Enable</button>
+            <button class="ap-fb-pill" id="ap-btn-disable">Disable</button>
             <button class="ap-fb-pill ap-fb-delete">Delete</button>
           </div>
 
@@ -1586,6 +1593,20 @@
   apFbCheckbox.addEventListener('click', function() {
     apRowCheckboxes.forEach(function(cb) { cb.classList.remove('checked'); });
     updateApHeader();
+  });
+
+  // Enable — turn on toggles for all checked rows
+  document.getElementById('ap-btn-enable').addEventListener('click', function() {
+    document.querySelectorAll('#auspost-panel .ap-svc-row .ap-checkbox.checked').forEach(function(cb) {
+      cb.closest('.ap-svc-row').querySelector('.ap-toggle').classList.add('on');
+    });
+  });
+
+  // Disable — turn off toggles for all checked rows
+  document.getElementById('ap-btn-disable').addEventListener('click', function() {
+    document.querySelectorAll('#auspost-panel .ap-svc-row .ap-checkbox.checked').forEach(function(cb) {
+      cb.closest('.ap-svc-row').querySelector('.ap-toggle').classList.remove('on');
+    });
   });
 
   // ── Australia Post panel toggle ──────────────────────────────────────────
