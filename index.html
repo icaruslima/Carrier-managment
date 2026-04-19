@@ -362,9 +362,9 @@
       border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB;
     }
     .ap-filter-bar.visible { display: flex; }
-    .ap-fb-label { font-size: 14px; font-weight: 600; color: #557390; flex: 1; }
+    .ap-fb-label { font-size: 14px; font-weight: 600; color: #2B3645; flex: 1; }
     .ap-fb-pill {
-      padding: 4px 10px; border: 1px solid #DAE0E7; border-radius: 6px;
+      padding: 4px 16px; border: 1px solid #DAE0E7; border-radius: 6px;
       background: #fff; font-size: 14px; font-weight: 500; color: #6322E5;
       cursor: pointer; box-shadow: 0 1px 2px rgba(0,0,0,.05); line-height: 20px;
     }
@@ -852,10 +852,10 @@
 
           <!-- Filter bar: shown when ≥1 checkbox is checked -->
           <div class="ap-filter-bar" id="ap-filter-bar">
-            <div class="ap-checkbox checked" style="pointer-events:none"></div>
-            <span class="ap-fb-label">Carries</span>
-            <button class="ap-fb-pill">Brand</button>
-            <button class="ap-fb-pill">Brand</button>
+            <div class="ap-checkbox checked" id="ap-fb-checkbox"></div>
+            <span class="ap-fb-label"><span id="ap-selected-count">0</span> stores selected</span>
+            <button class="ap-fb-pill">Enable</button>
+            <button class="ap-fb-pill">Disable</button>
             <button class="ap-fb-pill ap-fb-delete">Delete</button>
           </div>
 
@@ -1546,12 +1546,16 @@
   });
 
   // ── Services table checkbox toggling ────────────────────────────────────
-  var apFilterBar = document.getElementById('ap-filter-bar');
-  var apServicesHd = document.getElementById('ap-services-hd');
+  var apFilterBar    = document.getElementById('ap-filter-bar');
+  var apServicesHd   = document.getElementById('ap-services-hd');
+  var apSelectedCount = document.getElementById('ap-selected-count');
+  var apFbCheckbox   = document.getElementById('ap-fb-checkbox');
+  var apRowCheckboxes = document.querySelectorAll('#auspost-panel .ap-svc-row .ap-checkbox');
 
   function updateApHeader() {
-    var anyChecked = document.querySelectorAll('#auspost-panel .ap-svc-row .ap-checkbox.checked').length > 0;
-    if (anyChecked) {
+    var checked = document.querySelectorAll('#auspost-panel .ap-svc-row .ap-checkbox.checked').length;
+    apSelectedCount.textContent = checked;
+    if (checked > 0) {
       apFilterBar.classList.add('visible');
       apServicesHd.style.display = 'none';
     } else {
@@ -1560,11 +1564,28 @@
     }
   }
 
-  document.querySelectorAll('#auspost-panel .ap-svc-row .ap-checkbox').forEach(function(cb) {
+  // Row checkboxes
+  apRowCheckboxes.forEach(function(cb) {
     cb.addEventListener('click', function() {
       this.classList.toggle('checked');
       updateApHeader();
     });
+  });
+
+  // Header checkbox in regular header — select all
+  var apHdCheckbox = apServicesHd.querySelector('div[style*="border:1.5px"]');
+  if (apHdCheckbox) {
+    apHdCheckbox.style.cursor = 'pointer';
+    apHdCheckbox.addEventListener('click', function() {
+      apRowCheckboxes.forEach(function(cb) { cb.classList.add('checked'); });
+      updateApHeader();
+    });
+  }
+
+  // Filter bar checkbox — deselect all
+  apFbCheckbox.addEventListener('click', function() {
+    apRowCheckboxes.forEach(function(cb) { cb.classList.remove('checked'); });
+    updateApHeader();
   });
 
   // ── Australia Post panel toggle ──────────────────────────────────────────
