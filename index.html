@@ -348,24 +348,29 @@
     .ap-svc-row:last-child { border-bottom: none; }
     .ap-checkbox {
       width: 20px; height: 20px; border-radius: 4px; border: 1.5px solid #DAE0E7;
-      background: #fff; flex-shrink: 0; cursor: pointer; position: relative;
+      background: #fff; flex-shrink: 0; cursor: pointer;
     }
-    .ap-checkbox.checked { border-color: #A179F2; background: #F9FAFB; }
-    .ap-checkbox.checked::before {
-      content: '';
-      position: absolute;
-      left: 16.67%; right: 16.67%; top: 16.67%; bottom: 16.67%;
-      background: #6322E5; border-radius: 3px;
+    .ap-checkbox.checked {
+      border-color: #A179F2;
+      background: #F9FAFB url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='3' y='3' width='14' height='14' rx='3' fill='%236322E5'/%3E%3Cpath d='M6.5 10.5L8.5 12.5L13.5 7' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
     }
-    .ap-checkbox.checked::after {
-      content: '';
-      position: absolute;
-      left: 50%; top: 44%;
-      width: 6px; height: 3.5px;
-      border-left: 1.5px solid #fff;
-      border-bottom: 1.5px solid #fff;
-      transform: translate(-50%, -50%) rotate(-45deg);
+    /* Filter bar – shown when ≥1 row is checked */
+    .ap-filter-bar {
+      display: none; align-items: center; gap: 8px;
+      padding: 0 16px; height: 39px;
+      background: #fff;
+      border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB;
     }
+    .ap-filter-bar.visible { display: flex; }
+    .ap-fb-label { font-size: 14px; font-weight: 600; color: #557390; flex: 1; }
+    .ap-fb-pill {
+      padding: 4px 10px; border: 1px solid #DAE0E7; border-radius: 6px;
+      background: #fff; font-size: 14px; font-weight: 500; color: #6322E5;
+      cursor: pointer; box-shadow: 0 1px 2px rgba(0,0,0,.05); line-height: 20px;
+    }
+    .ap-fb-pill:hover { background: #F4F0FE; }
+    .ap-fb-delete { color: #E02D1B; }
+    .ap-fb-delete:hover { background: #FFF0EE; }
     .ap-svc-logo {
       width: 48px; height: 48px; border-radius: 2px; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center; overflow: hidden;
@@ -844,7 +849,17 @@
         <!-- Services -->
         <div class="ap-services-box">
           <div class="ap-services-label">Which carries services would you like to connect?</div>
-          <div class="ap-services-hd">
+
+          <!-- Filter bar: shown when ≥1 checkbox is checked -->
+          <div class="ap-filter-bar" id="ap-filter-bar">
+            <div class="ap-checkbox checked" style="pointer-events:none"></div>
+            <span class="ap-fb-label">Carries</span>
+            <button class="ap-fb-pill">Brand</button>
+            <button class="ap-fb-pill">Brand</button>
+            <button class="ap-fb-pill ap-fb-delete">Delete</button>
+          </div>
+
+          <div class="ap-services-hd" id="ap-services-hd">
             <div style="flex:1;display:flex;align-items:center;gap:8px">
               <div style="width:20px;height:20px;border-radius:4px;border:1.5px solid #DAE0E7;background:#fff;flex-shrink:0"></div>
               <span>Carries</span>
@@ -1531,9 +1546,24 @@
   });
 
   // ── Services table checkbox toggling ────────────────────────────────────
-  document.querySelectorAll('#auspost-panel .ap-checkbox').forEach(function(cb) {
+  var apFilterBar = document.getElementById('ap-filter-bar');
+  var apServicesHd = document.getElementById('ap-services-hd');
+
+  function updateApHeader() {
+    var anyChecked = document.querySelectorAll('#auspost-panel .ap-svc-row .ap-checkbox.checked').length > 0;
+    if (anyChecked) {
+      apFilterBar.classList.add('visible');
+      apServicesHd.style.display = 'none';
+    } else {
+      apFilterBar.classList.remove('visible');
+      apServicesHd.style.display = '';
+    }
+  }
+
+  document.querySelectorAll('#auspost-panel .ap-svc-row .ap-checkbox').forEach(function(cb) {
     cb.addEventListener('click', function() {
       this.classList.toggle('checked');
+      updateApHeader();
     });
   });
 
