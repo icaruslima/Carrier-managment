@@ -347,8 +347,12 @@
     }
     .ap-svc-row:last-child { border-bottom: none; }
     .ap-checkbox {
-      width: 24px; height: 24px; flex-shrink: 0; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
+      width: 20px; height: 20px; flex-shrink: 0; cursor: pointer;
+      border: 1.5px solid #557390; border-radius: 3.5px;
+      background: #fff; box-sizing: border-box;
+    }
+    .ap-checkbox.checked {
+      background: #6322E5; border-color: #6322E5;
     }
     /* Filter bar – shown when ≥1 row is checked */
     .ap-filter-bar {
@@ -848,7 +852,7 @@
 
           <!-- Filter bar: shown when ≥1 checkbox is checked -->
           <div class="ap-filter-bar" id="ap-filter-bar">
-            <div class="ap-checkbox checked" id="ap-fb-checkbox"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="16" height="16" rx="4" fill="#6322E5"/><path d="M10.3964 15.8429L7.14644 12.3563C6.95119 12.1468 6.95119 11.8072 7.14644 11.5977L7.85353 10.8391C8.04879 10.6296 8.36539 10.6296 8.56064 10.8391L10.75 13.1878L15.4394 8.1571C15.6346 7.94763 15.9512 7.94763 16.1465 8.1571L16.8536 8.91569C17.0488 9.12516 17.0488 9.46479 16.8536 9.67428L11.1036 15.8429C10.9083 16.0524 10.5917 16.0524 10.3964 15.8429V15.8429Z" fill="white"/></svg></div>
+            <div class="ap-checkbox checked" id="ap-fb-checkbox"></div>
             <span class="ap-fb-label"><span id="ap-selected-count">0</span> stores selected</span>
             <button class="ap-fb-pill">Enable</button>
             <button class="ap-fb-pill">Disable</button>
@@ -867,7 +871,7 @@
 
           <!-- eParcel Express -->
           <div class="ap-svc-row">
-            <div class="ap-checkbox"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4.5" y="4.5" width="15" height="15" rx="3.5" stroke="#DAE0E7"/><rect x="4.5" y="4.5" width="15" height="15" rx="3.5" fill="white" stroke="#557390"/></svg></div>
+            <div class="ap-checkbox"></div>
             <div class="ap-svc-logo">
               <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M46 0C47.1046 5.15404e-07 48 0.895431 48 2V46C48 47.1046 47.1046 48 46 48H2C0.895431 48 3.22133e-08 47.1046 0 46V2C5.15413e-07 0.895431 0.895431 3.22128e-08 2 0H46Z" stroke="#DAE0E7"/><path d="M48 44.25C48 46.3219 46.3219 48 44.25 48H3.75C1.67812 48 0 46.3219 0 44.25V3.75C0 1.67812 1.67812 0 3.75 0H44.25C46.3219 0 48 1.67812 48 3.75V44.25Z" fill="#FFC943"/><path fill-rule="evenodd" clip-rule="evenodd" d="M19.1442 8.2125C12.3004 10.2562 7.38794 16.4906 7.38794 23.9437C7.38794 31.5094 12.2911 37.7437 19.1442 39.7875V8.2125ZM23.9536 7.5H22.8286V9.23438H23.5411C29.1661 9.23438 33.8629 13.8375 33.8629 19.4531C33.8629 25.0688 29.2598 29.6719 23.6442 29.775V40.5H23.9536C33.1504 40.5 40.6129 33.1406 40.6129 23.9437C40.6036 14.85 33.1504 7.5 23.9536 7.5Z" fill="#E7262D"/></svg>
             </div>
@@ -882,7 +886,7 @@
 
           <!-- eParcel International -->
           <div class="ap-svc-row">
-            <div class="ap-checkbox"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4.5" y="4.5" width="15" height="15" rx="3.5" stroke="#DAE0E7"/><rect x="4.5" y="4.5" width="15" height="15" rx="3.5" fill="white" stroke="#557390"/></svg></div>
+            <div class="ap-checkbox"></div>
             <div class="ap-svc-logo" style="background:#fff;border:1px solid #E8EDF2">
               <svg width="48" height="48" viewBox="0 0 56 56"><path d="M56 51.625C56 54.0422 54.0422 56 51.625 56H4.375C1.95781 56 0 54.0422 0 51.625V4.375C0 1.95781 1.95781 0 4.375 0H51.625C54.0422 0 56 1.95781 56 4.375V51.625Z" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M22.3348 9.58125C14.3505 11.9656 8.6192 19.2391 8.6192 27.9344C8.6192 36.7609 14.3395 44.0344 22.3348 46.4188V9.58125ZM27.9458 8.75H26.6333V10.7734H27.4645C34.027 10.7734 39.5067 16.1437 39.5067 22.6953C39.5067 29.2469 34.1364 34.6172 27.5848 34.7375V47.25H27.9458C38.6755 47.25 47.3817 38.6641 47.3817 27.9344C47.3708 17.325 38.6755 8.75 27.9458 8.75Z" fill="#E7262D"/></svg>
             </div>
@@ -897,7 +901,7 @@
 
           <!-- eParcel -->
           <div class="ap-svc-row">
-            <div class="ap-checkbox"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4.5" y="4.5" width="15" height="15" rx="3.5" stroke="#DAE0E7"/><rect x="4.5" y="4.5" width="15" height="15" rx="3.5" fill="white" stroke="#557390"/></svg></div>
+            <div class="ap-checkbox"></div>
             <div class="ap-svc-logo" style="background:#fff;border:1px solid #E8EDF2">
               <svg width="48" height="48" viewBox="0 0 56 56"><path d="M56 51.625C56 54.0422 54.0422 56 51.625 56H4.375C1.95781 56 0 54.0422 0 51.625V4.375C0 1.95781 1.95781 0 4.375 0H51.625C54.0422 0 56 1.95781 56 4.375V51.625Z" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M22.3348 9.58125C14.3505 11.9656 8.6192 19.2391 8.6192 27.9344C8.6192 36.7609 14.3395 44.0344 22.3348 46.4188V9.58125ZM27.9458 8.75H26.6333V10.7734H27.4645C34.027 10.7734 39.5067 16.1437 39.5067 22.6953C39.5067 29.2469 34.1364 34.6172 27.5848 34.7375V47.25H27.9458C38.6755 47.25 47.3817 38.6641 47.3817 27.9344C47.3708 17.325 38.6755 8.75 27.9458 8.75Z" fill="#E7262D"/></svg>
             </div>
@@ -912,7 +916,7 @@
 
           <!-- eParcel Metro -->
           <div class="ap-svc-row">
-            <div class="ap-checkbox"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4.5" y="4.5" width="15" height="15" rx="3.5" stroke="#DAE0E7"/><rect x="4.5" y="4.5" width="15" height="15" rx="3.5" fill="white" stroke="#557390"/></svg></div>
+            <div class="ap-checkbox"></div>
             <div class="ap-svc-logo">
               <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M46 0C47.1046 5.15404e-07 48 0.895431 48 2V46C48 47.1046 47.1046 48 46 48H2C0.895431 48 3.22133e-08 47.1046 0 46V2C5.15413e-07 0.895431 0.895431 3.22128e-08 2 0H46Z" stroke="#DAE0E7"/><path d="M48 44.25C48 46.3219 46.3219 48 44.25 48H3.75C1.67812 48 0 46.3219 0 44.25V3.75C0 1.67812 1.67812 0 3.75 0H44.25C46.3219 0 48 1.67812 48 3.75V44.25Z" fill="#FFC943"/><path fill-rule="evenodd" clip-rule="evenodd" d="M19.1442 8.2125C12.3004 10.2562 7.38794 16.4906 7.38794 23.9437C7.38794 31.5094 12.2911 37.7437 19.1442 39.7875V8.2125ZM23.9536 7.5H22.8286V9.23438H23.5411C29.1661 9.23438 33.8629 13.8375 33.8629 19.4531C33.8629 25.0688 29.2598 29.6719 23.6442 29.775V40.5H23.9536C33.1504 40.5 40.6129 33.1406 40.6129 23.9437C40.6036 14.85 33.1504 7.5 23.9536 7.5Z" fill="#E7262D"/></svg>
             </div>
@@ -927,7 +931,7 @@
 
           <!-- eParcel Ondemand -->
           <div class="ap-svc-row">
-            <div class="ap-checkbox"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4.5" y="4.5" width="15" height="15" rx="3.5" stroke="#DAE0E7"/><rect x="4.5" y="4.5" width="15" height="15" rx="3.5" fill="white" stroke="#557390"/></svg></div>
+            <div class="ap-checkbox"></div>
             <div class="ap-svc-logo" style="background:#fff;border:1px solid #E8EDF2">
               <svg width="48" height="48" viewBox="0 0 56 56"><path d="M56 51.625C56 54.0422 54.0422 56 51.625 56H4.375C1.95781 56 0 54.0422 0 51.625V4.375C0 1.95781 1.95781 0 4.375 0H51.625C54.0422 0 56 1.95781 56 4.375V51.625Z" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M22.3348 9.58125C14.3505 11.9656 8.6192 19.2391 8.6192 27.9344C8.6192 36.7609 14.3395 44.0344 22.3348 46.4188V9.58125ZM27.9458 8.75H26.6333V10.7734H27.4645C34.027 10.7734 39.5067 16.1437 39.5067 22.6953C39.5067 29.2469 34.1364 34.6172 27.5848 34.7375V47.25H27.9458C38.6755 47.25 47.3817 38.6641 47.3817 27.9344C47.3708 17.325 38.6755 8.75 27.9458 8.75Z" fill="#E7262D"/></svg>
             </div>
@@ -942,7 +946,7 @@
 
           <!-- My Post Business Express -->
           <div class="ap-svc-row">
-            <div class="ap-checkbox"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4.5" y="4.5" width="15" height="15" rx="3.5" stroke="#DAE0E7"/><rect x="4.5" y="4.5" width="15" height="15" rx="3.5" fill="white" stroke="#557390"/></svg></div>
+            <div class="ap-checkbox"></div>
             <div class="ap-svc-logo">
               <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M46 0C47.1046 5.15404e-07 48 0.895431 48 2V46C48 47.1046 47.1046 48 46 48H2C0.895431 48 3.22133e-08 47.1046 0 46V2C5.15413e-07 0.895431 0.895431 3.22128e-08 2 0H46Z" stroke="#DAE0E7"/><path d="M48 44.25C48 46.3219 46.3219 48 44.25 48H3.75C1.67812 48 0 46.3219 0 44.25V3.75C0 1.67812 1.67812 0 3.75 0H44.25C46.3219 0 48 1.67812 48 3.75V44.25Z" fill="#FFC943"/><path fill-rule="evenodd" clip-rule="evenodd" d="M19.1442 8.2125C12.3004 10.2562 7.38794 16.4906 7.38794 23.9437C7.38794 31.5094 12.2911 37.7437 19.1442 39.7875V8.2125ZM23.9536 7.5H22.8286V9.23438H23.5411C29.1661 9.23438 33.8629 13.8375 33.8629 19.4531C33.8629 25.0688 29.2598 29.6719 23.6442 29.775V40.5H23.9536C33.1504 40.5 40.6129 33.1406 40.6129 23.9437C40.6036 14.85 33.1504 7.5 23.9536 7.5Z" fill="#E7262D"/></svg>
             </div>
@@ -957,7 +961,7 @@
 
           <!-- My Post Business Standard -->
           <div class="ap-svc-row">
-            <div class="ap-checkbox"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4.5" y="4.5" width="15" height="15" rx="3.5" stroke="#DAE0E7"/><rect x="4.5" y="4.5" width="15" height="15" rx="3.5" fill="white" stroke="#557390"/></svg></div>
+            <div class="ap-checkbox"></div>
             <div class="ap-svc-logo" style="background:#fff;border:1px solid #E8EDF2">
               <svg width="48" height="48" viewBox="0 0 56 56"><path d="M56 51.625C56 54.0422 54.0422 56 51.625 56H4.375C1.95781 56 0 54.0422 0 51.625V4.375C0 1.95781 1.95781 0 4.375 0H51.625C54.0422 0 56 1.95781 56 4.375V51.625Z" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M22.3348 9.58125C14.3505 11.9656 8.6192 19.2391 8.6192 27.9344C8.6192 36.7609 14.3395 44.0344 22.3348 46.4188V9.58125ZM27.9458 8.75H26.6333V10.7734H27.4645C34.027 10.7734 39.5067 16.1437 39.5067 22.6953C39.5067 29.2469 34.1364 34.6172 27.5848 34.7375V47.25H27.9458C38.6755 47.25 47.3817 38.6641 47.3817 27.9344C47.3708 17.325 38.6755 8.75 27.9458 8.75Z" fill="#E7262D"/></svg>
             </div>
@@ -1542,9 +1546,6 @@
   });
 
   // ── Services table checkbox toggling ────────────────────────────────────
-  var CB_DEFAULT = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4.5" y="4.5" width="15" height="15" rx="3.5" stroke="#DAE0E7"/><rect x="4.5" y="4.5" width="15" height="15" rx="3.5" fill="white" stroke="#557390"/></svg>';
-  var CB_CHECKED = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="16" height="16" rx="4" fill="#6322E5"/><path d="M10.3964 15.8429L7.14644 12.3563C6.95119 12.1468 6.95119 11.8072 7.14644 11.5977L7.85353 10.8391C8.04879 10.6296 8.36539 10.6296 8.56064 10.8391L10.75 13.1878L15.4394 8.1571C15.6346 7.94763 15.9512 7.94763 16.1465 8.1571L16.8536 8.91569C17.0488 9.12516 17.0488 9.46479 16.8536 9.67428L11.1036 15.8429C10.9083 16.0524 10.5917 16.0524 10.3964 15.8429V15.8429Z" fill="white"/></svg>';
-
   var apFilterBar    = document.getElementById('ap-filter-bar');
   var apServicesHd   = document.getElementById('ap-services-hd');
   var apSelectedCount = document.getElementById('ap-selected-count');
@@ -1566,8 +1567,7 @@
   // Row checkboxes
   apRowCheckboxes.forEach(function(cb) {
     cb.addEventListener('click', function() {
-      var isChecked = this.classList.toggle('checked');
-      this.innerHTML = isChecked ? CB_CHECKED : CB_DEFAULT;
+      this.classList.toggle('checked');
       updateApHeader();
     });
   });
@@ -1577,20 +1577,14 @@
   if (apHdCheckbox) {
     apHdCheckbox.style.cursor = 'pointer';
     apHdCheckbox.addEventListener('click', function() {
-      apRowCheckboxes.forEach(function(cb) {
-        cb.classList.add('checked');
-        cb.innerHTML = CB_CHECKED;
-      });
+      apRowCheckboxes.forEach(function(cb) { cb.classList.add('checked'); });
       updateApHeader();
     });
   }
 
   // Filter bar checkbox — deselect all
   apFbCheckbox.addEventListener('click', function() {
-    apRowCheckboxes.forEach(function(cb) {
-      cb.classList.remove('checked');
-      cb.innerHTML = CB_DEFAULT;
-    });
+    apRowCheckboxes.forEach(function(cb) { cb.classList.remove('checked'); });
     updateApHeader();
   });
 
