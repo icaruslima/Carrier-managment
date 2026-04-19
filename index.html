@@ -312,8 +312,7 @@
       font-size: 16px; font-weight: 600; color: #2B3645; margin-bottom: 16px;
       display: flex; align-items: center; gap: 8px;
     }
-    .ap-form-row { display: flex; gap: 16px; }
-    .ap-form-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+    .ap-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
     .ap-field { display: flex; flex-direction: column; gap: 8px; }
     .ap-label { font-size: 14px; font-weight: 500; color: #2B3645; line-height: 20px; }
     .ap-input {
@@ -831,33 +830,29 @@
             <svg width="13" height="13" fill="none" viewBox="0 0 14 14"><path d="M7 1a6 6 0 100 12A6 6 0 007 1zm0 4.5v4m0-6.25a.375.375 0 110 .75.375.375 0 010-.75z" stroke="#2B3645" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <div class="ap-form-row">
-            <div class="ap-form-col">
-              <div class="ap-field">
-                <label class="ap-label">Your Australia Post business credit account number</label>
-                <input class="ap-input" type="text" placeholder="e.g 10345654" />
-                <span class="ap-hint">Found on your Australia Post contract or invoice</span>
-              </div>
-              <div class="ap-field">
-                <label class="ap-label">API Key</label>
-                <input class="ap-input" type="text" placeholder="Your API Key" />
-                <span class="ap-hint">Available in your Australia Post Developer Portal</span>
-              </div>
-              <div class="ap-field">
-                <label class="ap-label">Secret Key</label>
-                <input class="ap-input" type="text" placeholder="Your secret Key" />
-                <span class="ap-hint">Generated alongside your API key in the portal</span>
-              </div>
+            <div class="ap-field">
+              <label class="ap-label">Your Australia Post business credit account number</label>
+              <input class="ap-input" type="text" placeholder="e.g 10345654" />
+              <span class="ap-hint">Found on your Australia Post contract or invoice</span>
             </div>
-            <div class="ap-form-col">
-              <div class="ap-field">
-                <label class="ap-label">Add an account title <span style="color:#8B9BAF;font-weight:400">(optional)</span></label>
-                <input class="ap-input" type="text" placeholder="Add a title" />
-              </div>
-              <div class="ap-field">
-                <label class="ap-label">Label prefix <span style="color:#8B9BAF;font-weight:400">(optional)</span></label>
-                <input class="ap-input" type="text" placeholder="Your secret Key" />
-                <span class="ap-hint">Prepended to all generated label IDs</span>
-              </div>
+            <div class="ap-field">
+              <label class="ap-label">Add an account title <span style="color:#8B9BAF;font-weight:400">(optional)</span></label>
+              <input class="ap-input" type="text" placeholder="Add a title" />
+            </div>
+            <div class="ap-field">
+              <label class="ap-label">API Key</label>
+              <input class="ap-input" type="text" placeholder="Your API Key" />
+              <span class="ap-hint">Available in your Australia Post Developer Portal</span>
+            </div>
+            <div class="ap-field">
+              <label class="ap-label">Label prefix <span style="color:#8B9BAF;font-weight:400">(optional)</span></label>
+              <input class="ap-input" type="text" placeholder="Your label prefix" />
+              <span class="ap-hint">Prepended to all generated label IDs</span>
+            </div>
+            <div class="ap-field">
+              <label class="ap-label">Secret Key</label>
+              <input class="ap-input" type="text" placeholder="Your secret Key" />
+              <span class="ap-hint">Generated alongside your API key in the portal</span>
             </div>
           </div>
         </div>
