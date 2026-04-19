@@ -335,6 +335,7 @@
       margin: 18px 18px 0; border: 1px solid #E8EDF2; border-radius: 4px; overflow: hidden;
     }
     .ap-services-hd {
+      display: flex; align-items: center; gap: 12px;
       padding: 10px 16px; border-bottom: 1px solid #E8EDF2;
       font-size: 12px; font-weight: 500; color: #557390;
     }
@@ -825,10 +826,12 @@
         <div class="ap-services-box">
           <div class="ap-services-label">Select the services you want to activate</div>
           <div class="ap-services-hd">
-            <div style="flex:1">Service name</div>
-            <div style="width:60px;text-align:center">On-time</div>
-            <div style="width:70px;text-align:center">Avg. transit</div>
-            <div style="width:53px"></div>
+            <div style="width:20px;flex-shrink:0"></div>
+            <div style="width:48px;flex-shrink:0"></div>
+            <div style="flex:1">Carries</div>
+            <div style="width:60px;text-align:center">D.O.T</div>
+            <div style="width:70px;text-align:center">Avg. speed</div>
+            <div style="width:53px;text-align:right">Status</div>
           </div>
 
           <!-- eParcel Express -->
@@ -839,7 +842,7 @@
             </div>
             <div class="ap-svc-info">
               <div class="ap-svc-name">eParcel Express</div>
-              <div class="ap-svc-sub">Domestic Express</div>
+              <div class="ap-svc-sub">Express Post + Signature</div>
             </div>
             <div class="ap-svc-metric">75%</div>
             <div class="ap-svc-metric">3.5 days</div>
@@ -854,7 +857,7 @@
             </div>
             <div class="ap-svc-info">
               <div class="ap-svc-name">eParcel International</div>
-              <div class="ap-svc-sub">International Standard</div>
+              <div class="ap-svc-sub">Parcel Post + Signature</div>
             </div>
             <div class="ap-svc-metric">75%</div>
             <div class="ap-svc-metric">3.5 days</div>
