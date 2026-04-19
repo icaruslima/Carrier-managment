@@ -357,10 +357,10 @@
     .ap-svc-info { flex: 1; min-width: 0; }
     .ap-svc-name { font-size: 16px; font-weight: 600; color: #181F27; line-height: 24px; }
     .ap-svc-sub { font-size: 14px; color: #4E637E; line-height: 20px; }
-    .ap-svc-metric { width: 60px; text-align: center; font-size: 14px; font-weight: 500; color: #2B3645; flex-shrink: 0; }
+    .ap-svc-metric { width: 80px; text-align: center; font-size: 14px; font-weight: 500; color: #2B3645; flex-shrink: 0; }
     .ap-toggle {
       width: 44px; height: 24px; border-radius: 15px; border: 1px solid #DAE0E7;
-      background: #F9FAFB; position: relative; flex-shrink: 0;
+      background: #F9FAFB; position: relative; flex-shrink: 0; margin-left: auto;
     }
     .ap-toggle::after {
       content: ''; position: absolute; top: 3px; left: 3px;
@@ -830,9 +830,9 @@
               <div style="width:20px;height:20px;border-radius:4px;border:1.5px solid #DAE0E7;background:#fff;flex-shrink:0"></div>
               <span>Carries</span>
             </div>
-            <div style="width:60px;text-align:center">D.O.T</div>
-            <div style="width:60px;text-align:center">Avg. speed</div>
-            <div style="width:44px;text-align:right">Status</div>
+            <div style="width:80px;text-align:center">D.O.T</div>
+            <div style="width:80px;text-align:center">Avg. speed</div>
+            <div style="width:44px;text-align:center;margin-left:auto">Status</div>
           </div>
 
           <!-- eParcel Express -->
@@ -888,10 +888,10 @@
             </div>
             <div class="ap-svc-info">
               <div class="ap-svc-name">eParcel Metro</div>
-              <div class="ap-svc-sub">Domestic Metro</div>
+              <div class="ap-svc-sub">Parcel Post + Signature</div>
             </div>
-            <div class="ap-svc-metric">85%</div>
-            <div class="ap-svc-metric">1.5 days</div>
+            <div class="ap-svc-metric">95%</div>
+            <div class="ap-svc-metric">3.5 days</div>
             <div class="ap-toggle"></div>
           </div>
 
@@ -903,7 +903,7 @@
             </div>
             <div class="ap-svc-info">
               <div class="ap-svc-name">eParcel Ondemand</div>
-              <div class="ap-svc-sub">Domestic On-demand</div>
+              <div class="ap-svc-sub">Parcel Post + Signature</div>
             </div>
             <div class="ap-svc-metric">85%</div>
             <div class="ap-svc-metric">1.5 days</div>
@@ -912,13 +912,13 @@
 
           <!-- My Post Business Express -->
           <div class="ap-svc-row">
-            <div class="ap-checkbox checked"></div>
+            <div class="ap-checkbox"></div>
             <div class="ap-svc-logo">
               <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M46 0C47.1046 5.15404e-07 48 0.895431 48 2V46C48 47.1046 47.1046 48 46 48H2C0.895431 48 3.22133e-08 47.1046 0 46V2C5.15413e-07 0.895431 0.895431 3.22128e-08 2 0H46Z" stroke="#DAE0E7"/><path d="M48 44.25C48 46.3219 46.3219 48 44.25 48H3.75C1.67812 48 0 46.3219 0 44.25V3.75C0 1.67812 1.67812 0 3.75 0H44.25C46.3219 0 48 1.67812 48 3.75V44.25Z" fill="#FFC943"/><path fill-rule="evenodd" clip-rule="evenodd" d="M19.1442 8.2125C12.3004 10.2562 7.38794 16.4906 7.38794 23.9437C7.38794 31.5094 12.2911 37.7437 19.1442 39.7875V8.2125ZM23.9536 7.5H22.8286V9.23438H23.5411C29.1661 9.23438 33.8629 13.8375 33.8629 19.4531C33.8629 25.0688 29.2598 29.6719 23.6442 29.775V40.5H23.9536C33.1504 40.5 40.6129 33.1406 40.6129 23.9437C40.6036 14.85 33.1504 7.5 23.9536 7.5Z" fill="#E7262D"/></svg>
             </div>
             <div class="ap-svc-info">
               <div class="ap-svc-name">My Post Business Express</div>
-              <div class="ap-svc-sub">Express Delivery</div>
+              <div class="ap-svc-sub">Express Post + Signature</div>
             </div>
             <div class="ap-svc-metric">85%</div>
             <div class="ap-svc-metric">1.5 days</div>
@@ -927,13 +927,13 @@
 
           <!-- My Post Business Standard -->
           <div class="ap-svc-row">
-            <div class="ap-checkbox checked"></div>
+            <div class="ap-checkbox"></div>
             <div class="ap-svc-logo" style="background:#fff;border:1px solid #E8EDF2">
               <svg width="48" height="48" viewBox="0 0 56 56"><path d="M56 51.625C56 54.0422 54.0422 56 51.625 56H4.375C1.95781 56 0 54.0422 0 51.625V4.375C0 1.95781 1.95781 0 4.375 0H51.625C54.0422 0 56 1.95781 56 4.375V51.625Z" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M22.3348 9.58125C14.3505 11.9656 8.6192 19.2391 8.6192 27.9344C8.6192 36.7609 14.3395 44.0344 22.3348 46.4188V9.58125ZM27.9458 8.75H26.6333V10.7734H27.4645C34.027 10.7734 39.5067 16.1437 39.5067 22.6953C39.5067 29.2469 34.1364 34.6172 27.5848 34.7375V47.25H27.9458C38.6755 47.25 47.3817 38.6641 47.3817 27.9344C47.3708 17.325 38.6755 8.75 27.9458 8.75Z" fill="#E7262D"/></svg>
             </div>
             <div class="ap-svc-info">
               <div class="ap-svc-name">My Post Business Standard</div>
-              <div class="ap-svc-sub">Standard Delivery</div>
+              <div class="ap-svc-sub">Express Post + Signature</div>
             </div>
             <div class="ap-svc-metric">85%</div>
             <div class="ap-svc-metric">3.5 days</div>
