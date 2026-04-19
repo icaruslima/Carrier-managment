@@ -349,10 +349,19 @@
     .ap-checkbox {
       width: 20px; height: 20px; flex-shrink: 0; cursor: pointer;
       border: 1.5px solid #557390; border-radius: 3.5px;
-      background: #fff; box-sizing: border-box;
+      background: #fff; box-sizing: border-box; position: relative;
     }
     .ap-checkbox.checked {
       background: #6322E5; border-color: #6322E5;
+    }
+    .ap-checkbox.checked::after {
+      content: '';
+      position: absolute;
+      left: 5px; top: 2px;
+      width: 5px; height: 9px;
+      border: 2px solid #fff;
+      border-top: none; border-left: none;
+      transform: rotate(45deg);
     }
     /* Filter bar – shown when ≥1 row is checked */
     .ap-filter-bar {
