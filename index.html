@@ -123,6 +123,7 @@
       white-space: nowrap;
     }
     .nav-dropdown-item:hover { background: rgba(40,14,92,.06); }
+    .nav-dropdown-item.active { background: rgba(40,14,92,.1); }
     .nav-dropdown-item.divider-above {
       height: 35px;
       border-top: 0.5px solid #DAE0E7;
@@ -639,7 +640,7 @@
     <path d="M73.8988 14.3398H59.5798V20.275H64.6018C64.166 22.62 62.3398 24.5707 58.8327 24.5707C53.8936 24.5707 51.4656 20.7523 51.4656 16.249C51.4656 11.8288 53.7691 7.69909 58.3969 7.69909C61.5097 7.69909 63.2114 9.6083 63.5019 11.3515H73.4838C72.9235 5.10506 67.0298 0 58.5214 0C48.2075 0 42.2724 7.49157 42.2724 16.166C42.2724 24.716 48 32 58.6252 32C67.0506 32 72.5707 27.476 73.6913 20.69C73.9196 19.3619 74.0026 17.9922 74.0026 16.6018C73.9818 15.8132 73.9611 15.0661 73.8988 14.3398Z" fill="white"/>
   </svg>
   <div class="nav-menu">
-    <div class="nav-item active">New Orders <span class="nav-badge">10</span></div>
+    <div class="nav-item">New Orders <span class="nav-badge">10</span></div>
     <div class="nav-item with-counter">Ready to Ship <span class="nav-badge">56</span></div>
     <div class="nav-item">Track</div>
     <div class="nav-item">Returns</div>
@@ -653,7 +654,7 @@
 </nav>
 <div class="nav-dropdown" id="navDropdown">
   <div class="nav-dropdown-item">Invoices</div>
-  <div class="nav-dropdown-item">Settings</div>
+  <div class="nav-dropdown-item active">Settings</div>
   <div class="nav-dropdown-item">My profile</div>
   <div class="nav-dropdown-item">Support</div>
   <div class="nav-dropdown-item divider-above">Logout</div>
