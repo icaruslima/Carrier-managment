@@ -1672,9 +1672,8 @@
     });
   });
 
-  // ── Save button + service toggles — activate when any input has content ──
+  // ── Save button — enable when any input has content ──────────────────────
   var apSaveBtn = document.querySelector('.ap-btn-save');
-  var apServicesActivated = false;
   function checkApForm() {
     var hasContent = false;
     document.querySelectorAll('#auspost-panel .ap-input').forEach(function(inp) {
@@ -1682,17 +1681,6 @@
     });
     apSaveBtn.disabled = !hasContent;
     apSaveBtn.classList.toggle('enabled', hasContent);
-    if (hasContent && !apServicesActivated) {
-      apServicesActivated = true;
-      document.querySelectorAll('#auspost-panel .ap-svc-row .ap-toggle').forEach(function(t) {
-        t.classList.add('on');
-      });
-    } else if (!hasContent && apServicesActivated) {
-      apServicesActivated = false;
-      document.querySelectorAll('#auspost-panel .ap-svc-row .ap-toggle').forEach(function(t) {
-        t.classList.remove('on');
-      });
-    }
   }
   document.querySelectorAll('#auspost-panel .ap-input').forEach(function(inp) {
     inp.addEventListener('input', checkApForm);
