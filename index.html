@@ -334,10 +334,12 @@
     .ap-services-box {
       margin: 18px 18px 0; border: 1px solid #E8EDF2; border-radius: 4px; overflow: hidden;
     }
+    .ap-hd-wrap { position: relative; height: 41px; }
     .ap-services-hd {
       display: flex; align-items: center; gap: 12px;
-      padding: 0 16px; height: 40px; border-bottom: 1px solid #E8EDF2;
+      padding: 0 16px; border-bottom: 1px solid #E8EDF2;
       font-size: 12px; font-weight: 500; color: #557390;
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
     }
     .ap-services-label { padding: 16px 16px 8px; font-size: 16px; font-weight: 600; color: #2B3645; }
     .ap-svc-row {
@@ -365,9 +367,9 @@
     /* Filter bar – shown when ≥1 row is checked */
     .ap-filter-bar {
       display: none; align-items: center; gap: 8px;
-      padding: 0 16px; height: 39px;
-      background: #fff;
+      padding: 0 16px; background: #fff;
       border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB;
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
     }
     .ap-filter-bar.visible { display: flex; }
     .ap-fb-label { font-size: 14px; font-weight: 600; color: #2B3645; flex: 1; }
@@ -866,23 +868,25 @@
         <div class="ap-services-box">
           <div class="ap-services-label">Which carries services would you like to connect?</div>
 
-          <!-- Filter bar: shown when ≥1 checkbox is checked -->
-          <div class="ap-filter-bar" id="ap-filter-bar">
-            <div class="ap-checkbox checked" id="ap-fb-checkbox"></div>
-            <span class="ap-fb-label"><span id="ap-selected-count">0</span> stores selected</span>
-            <button class="ap-fb-pill" id="ap-btn-enable">Enable</button>
-            <button class="ap-fb-pill" id="ap-btn-disable">Disable</button>
-            <button class="ap-fb-pill ap-fb-delete">Delete</button>
-          </div>
-
-          <div class="ap-services-hd" id="ap-services-hd">
-            <div style="flex:1;display:flex;align-items:center;gap:8px">
-              <div style="width:20px;height:20px;border-radius:4px;border:1.5px solid #DAE0E7;background:#fff;flex-shrink:0"></div>
-              <span>Carries</span>
+          <div class="ap-hd-wrap">
+            <!-- Filter bar: shown when ≥1 checkbox is checked -->
+            <div class="ap-filter-bar" id="ap-filter-bar">
+              <div class="ap-checkbox checked" id="ap-fb-checkbox"></div>
+              <span class="ap-fb-label"><span id="ap-selected-count">0</span> stores selected</span>
+              <button class="ap-fb-pill" id="ap-btn-enable">Enable</button>
+              <button class="ap-fb-pill" id="ap-btn-disable">Disable</button>
+              <button class="ap-fb-pill ap-fb-delete">Delete</button>
             </div>
-            <div style="width:80px;text-align:center">D.O.T</div>
-            <div style="width:80px;text-align:center">Avg. speed</div>
-            <div style="width:44px;text-align:center;margin-left:auto">Status</div>
+
+            <div class="ap-services-hd" id="ap-services-hd">
+              <div style="flex:1;display:flex;align-items:center;gap:8px">
+                <div style="width:20px;height:20px;border-radius:4px;border:1.5px solid #DAE0E7;background:#fff;flex-shrink:0"></div>
+                <span>Carries</span>
+              </div>
+              <div style="width:80px;text-align:center">D.O.T</div>
+              <div style="width:80px;text-align:center">Avg. speed</div>
+              <div style="width:44px;text-align:center;margin-left:auto">Status</div>
+            </div>
           </div>
 
           <!-- eParcel Express -->
