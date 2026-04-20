@@ -129,34 +129,7 @@
     }
 
     /* ── PAGE SHELL ── */
-    .page { background: #F9FAFB; padding-top: 64px; position: relative; }
-
-    /* ── CARRIER PAGE ── */
-    #carrier-page {
-      display: none;
-      box-sizing: border-box;
-      position: absolute;
-      width: 948px;
-      left: 369px;
-      top: 148px;
-      background: #FFFFFF;
-      border: 1px solid #DAE0E7;
-      border-radius: 6px;
-      z-index: 20;
-      overflow: hidden;
-    }
-    .cp-header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 20px 24px; border-bottom: 1px solid #DAE0E7;
-    }
-    .cp-header-left { display: flex; align-items: center; gap: 16px; }
-    .cp-back {
-      width: 32px; height: 32px; display: flex; align-items: center;
-      justify-content: center; cursor: pointer; border-radius: 6px;
-      border: 1px solid #DAE0E7; background: #fff; flex-shrink: 0;
-    }
-    .cp-back:hover { background: #F6F8F9; }
-    .cp-title { font-size: 18px; font-weight: 600; color: #2B3645; }
+    .page { background: #F9FAFB; padding-top: 64px; }
 
     /* ── SETTINGS HEADING ── */
     .settings-heading {
@@ -1454,22 +1427,6 @@
 
     </div><!-- /main -->
   </div><!-- /layout -->
-
-  <!-- ══ CARRIER PAGE ══ -->
-  <div id="carrier-page">
-    <div class="cp-header">
-      <div class="cp-header-left">
-        <button class="cp-back" id="cp-back" title="Back">
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#2B3645" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <span class="cp-title" id="cp-carrier-name"></span>
-      </div>
-    </div>
-    <div style="padding: 40px 24px; color: #557390; font-size: 14px; text-align: center; min-height: 200px; display: flex; align-items: center; justify-content: center;">
-      Carrier settings coming soon.
-    </div>
-  </div>
-
 </div><!-- /page -->
 
 
@@ -1748,27 +1705,12 @@
     });
   });
 
-  // ── Carrier name click — open carrier page ──────────────────────────────
-  var carrierPage = document.getElementById('carrier-page');
-  var cpCarrierName = document.getElementById('cp-carrier-name');
-
-  function showCarrierPage(name) {
-    cpCarrierName.textContent = name;
-    carrierPage.style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function hideCarrierPage() {
-    carrierPage.style.display = 'none';
-  }
-
+  // ── Carrier name click — open Australia Post panel ───────────────────────
   document.querySelectorAll('.c-name').forEach(function(name) {
     name.addEventListener('click', function() {
-      showCarrierPage(this.textContent.trim());
+      showAuspostPanel();
     });
   });
-
-  document.getElementById('cp-back').addEventListener('click', hideCarrierPage);
 </script>
 
 </body>
