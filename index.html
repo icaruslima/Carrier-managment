@@ -1687,6 +1687,13 @@
     inp.addEventListener('input', checkApForm);
   });
 
+  apSaveBtn.addEventListener('click', function() {
+    if (!this.classList.contains('enabled')) return;
+    var tabs = document.querySelectorAll('.ap-tab');
+    tabs.forEach(function(t) { t.classList.remove('active'); });
+    tabs[1].classList.add('active'); // Settings tab (index 1)
+  });
+
   // ── "Don't show me this again" & "View recommendations" ─────────────────
   var recsEl = document.querySelector('.recs');
   document.querySelector('.recs-link').addEventListener('click', function() {
